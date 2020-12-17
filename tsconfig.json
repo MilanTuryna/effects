@@ -2,7 +2,8 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es5",
-    "outDir": "stable"
+    "outDir": "stable",
+    "removeComments": true
   },
   "exclude": [
     "node_modules"
