@@ -20,18 +20,10 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * @author Milan Turyna
- * @link https://github.com/MilanTuryna
- * Just a few effects for HTML elements without any JS library (jquery, etc.)
- */
 var ElementsEffects;
 (function (ElementsEffects) {
-    var Effect = /** @class */ (function () {
-        /**
-         * @param elements
-         * @param callback
-         */
+    ElementsEffects.VERSION = "1.0.1";
+    var Effect = (function () {
         function Effect(elements, callback) {
             this.elements = __spreadArrays(elements);
             this.callback = callback;
@@ -42,7 +34,7 @@ var ElementsEffects;
         return Effect;
     }());
     ElementsEffects.Effect = Effect;
-    var TypeWriterEffect = /** @class */ (function (_super) {
+    var TypeWriterEffect = (function (_super) {
         __extends(TypeWriterEffect, _super);
         function TypeWriterEffect() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -70,15 +62,8 @@ var ElementsEffects;
         return TypeWriterEffect;
     }(Effect));
     ElementsEffects.TypeWriterEffect = TypeWriterEffect;
-    var CounterEffect = /** @class */ (function (_super) {
+    var CounterEffect = (function (_super) {
         __extends(CounterEffect, _super);
-        /**
-         * @param elements
-         * @param callback
-         * @param counterGoal
-         * @param startFrom
-         * @param numberChar
-         */
         function CounterEffect(elements, callback, counterGoal, startFrom, numberChar) {
             if (counterGoal === void 0) { counterGoal = 100; }
             if (startFrom === void 0) { startFrom = 0; }
@@ -92,9 +77,9 @@ var ElementsEffects;
         CounterEffect.prototype.start = function () {
             var _this = this;
             this.elements.forEach(function (element) {
-                var counter = Number(element.dataset["counterEffect-startFrom"]) || 0;
-                var counterGoal = Number(element.dataset["counterEffect-goal"]) || 100;
-                var intervalTimeout = Number(element.dataset["hundredPercents-timeout"]) || 50;
+                var counter = Number(element.dataset["counterEffect-startFrom"]) || _this.startFrom;
+                var counterGoal = Number(element.dataset["counterEffect-goal"]) || _this.counterGoal;
+                var intervalTimeout = Number(element.dataset["counterEffect-intervalTimeout"]) || 50;
                 var interval = setInterval(function () {
                     if (counter === counterGoal) {
                         clearInterval(interval);
