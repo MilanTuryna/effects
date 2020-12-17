@@ -1,6 +1,6 @@
 # Effects
 A simple libraries for adding some dynamic effects to your web application programmed. All libraries are programmed in 
-TypeScript but it's built to classic Javascript (`/build`). Application doesn't need any external library (jquery...).
+TypeScript but it's built to classic Javascript (`/stable`). Application doesn't need any external library (jquery...).
 
 ## Structure
 #### ElementsEffects
