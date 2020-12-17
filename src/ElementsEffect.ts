@@ -4,6 +4,7 @@
  * Just a few effects for HTML elements without any JS library (jquery, etc.)
  */
 export namespace ElementsEffects {
+    export const VERSION = "1.0.1";
     export abstract class Effect {
         public callback: (element) => void;
         protected readonly elements: HTMLElement[];
