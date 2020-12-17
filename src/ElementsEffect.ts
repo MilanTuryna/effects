@@ -68,7 +68,7 @@ export namespace ElementsEffects {
         }
 
         start(): this {
-            this.elements.forEach((element) => {
+            this.elements.forEach((element: HTMLElement) => {
                 let counter: number = Number(element.dataset["counterEffect-startFrom"]) || 0;
                 let counterGoal: number = Number(element.dataset["counterEffect-goal"]) || 100;
                 let intervalTimeout: number = Number(element.dataset["hundredPercents-timeout"]) || 50;
