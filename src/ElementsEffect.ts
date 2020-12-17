@@ -26,7 +26,7 @@ export namespace ElementsEffects {
         start(): this {
             this.elements.forEach((element: HTMLElement) => {
                 let splitText: string[] = element.innerText.split('');
-                let intervalTimeout: number = Number(element.dataset["typewriterTimeout"]) || 50;
+                let intervalTimeout: number = Number(element.dataset["typeWriter-timeout"]) || 50;
                 let counter: number = 0;
                 let interval: number;
 
