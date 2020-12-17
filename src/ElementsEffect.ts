@@ -48,17 +48,29 @@ export namespace ElementsEffects {
     }
 
     export class CounterEffect extends Effect {
+        private readonly counterGoal: number;
+        private readonly startFrom: number;
         private readonly numberChar: string;
 
-        constructor(elements: HTMLElement[], callback: (element) => void, numberChar: string = "%") {
+        /**
+         * @param elements
+         * @param callback
+         * @param counterGoal
+         * @param startFrom
+         * @param numberChar
+         */
+        constructor(elements: HTMLElement[], callback: (element) => void, counterGoal: number = 100, startFrom:number = 0, numberChar: string = "%") {
             super(elements, callback);
+
+            this.counterGoal = counterGoal;
+            this.startFrom = startFrom;
             this.numberChar = numberChar;
         }
 
         start(): this {
             this.elements.forEach((element) => {
-                let counter: number = 0;
-                let counterGoal: number = 100;
+                let counter: number = Number(element.dataset["counterEffect-startFrom"]) || 0;
+                let counterGoal: number = Number(element.dataset["counterEffect-goal"]) || 100;
                 let intervalTimeout: number = Number(element.dataset["hundredPercents-timeout"]) || 50;
 
                 let interval = setInterval(() => {
@@ -72,6 +84,10 @@ export namespace ElementsEffects {
                 }, intervalTimeout);
             });
             return this;
+        }
+
+        getCounterGoal(): number {
+            return this.counterGoal;
         }
 
         getNumberChar(): string {
